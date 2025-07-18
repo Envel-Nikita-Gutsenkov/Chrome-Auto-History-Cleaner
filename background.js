@@ -18,25 +18,38 @@ async function cleanHistory() {
 
     console.log(`Cleaning history older than ${daysToKeep} days (before ${new Date(cutoffTimestamp).toLocaleString()}).`);
 
-    // Search for history entries older than the cutoff
-    const historyItems = await chrome.history.search({
-      text: '', // Search all history entries
-      startTime: 0, // From the beginning of history
-      endTime: cutoffTimestamp // Up to the calculated cutoff
-    });
+    let totalDeleted = 0;
+    let historyItems;
 
-    if (historyItems.length > 0) {
-      // Iterate and delete each old history item
-      for (const item of historyItems) {
-        if (item.id) {
-          try {
-            await chrome.history.deleteUrl({ url: item.url });
-          } catch (error) {
-            console.error(`Error deleting URL ${item.url}:`, error);
+    do {
+      // Search for history entries older than the cutoff, with a higher maxResults
+      // A large number like 1000 or 5000 is usually sufficient per batch
+      historyItems = await chrome.history.search({
+        text: '', // Search all history entries
+        startTime: 0, // From the beginning of history
+        endTime: cutoffTimestamp, // Up to the calculated cutoff
+        maxResults: 5000 // Request more results per batch
+      });
+
+      if (historyItems.length > 0) {
+        // Iterate and delete each old history item
+        for (const item of historyItems) {
+          if (item.id) {
+            try {
+              await chrome.history.deleteUrl({ url: item.url });
+              totalDeleted++;
+            } catch (error) {
+              console.error(`Error deleting URL ${item.url}:`, error);
+            }
           }
         }
+        console.log(`Deleted ${historyItems.length} history entries in this batch.`);
       }
-      console.log(`Deleted ${historyItems.length} history entries.`);
+      // Continue looping as long as historyItems are found
+    } while (historyItems.length > 0);
+
+    if (totalDeleted > 0) {
+      console.log(`Successfully deleted a total of ${totalDeleted} history entries.`);
     } else {
       console.log('No history entries to delete.');
     }

@@ -1,60 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Auto History Cleaner Settings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Cleaner Settings</title>
+    <!-- Tailwind CSS for utility-first styling -->
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <!-- Google Fonts for the Inter typeface -->
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
     <style>
+        /* Base styles for the popup body, setting font and background */
         body {
-            font-family: Arial, sans-serif;
-            width: 250px;
-            padding: 15px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        h2 {
-            color: #2c3e50;
-            margin-top: 0;
-            font-size: 1.2em;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        input[type="number"] {
-            width: calc(100% - 20px);
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Very light background, common in Chrome */
+            color: #3c4043; /* Standard Google gray text */
+            width: 280px;
+            padding: 16px;
             box-sizing: border-box;
+            overflow: hidden; /* Prevents scrollbars if content slightly overflows */
         }
-        button {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
+        /* Styling for the main content container */
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px; /* Standard rounded corners */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Subtle, layered shadow */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px; /* Spacing between elements */
+        }
+        /* Styles for the main heading */
+        h2 {
+            color: #202124; /* Darker title text */
+            font-size: 1.25em; /* Standard title size */
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+        /* Styles for input labels */
+        label {
+            font-weight: 500;
+            color: #5f6368; /* Slightly darker gray for labels */
+            margin-bottom: 4px;
+            display: block; /* Ensures label takes full width */
+        }
+        /* Styling for number input fields */
+        input[type="number"] {
             width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #dadce0; /* Light gray border */
+            border-radius: 4px; /* Slightly less rounded for inputs */
+            font-size: 1em;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for focus */
+            box-sizing: border-box;
+            -moz-appearance: textfield; /* Firefox specific to hide spin buttons */
         }
+        /* Hide spin buttons for Webkit browsers (Chrome, Safari) */
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Focus styles for input fields */
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #1a73e8; /* Standard Google blue for focus */
+            box-shadow: 0 0 0 1px #1a73e8; /* Thin, direct blue focus ring */
+        }
+        /* Styling for the main action button */
+        button {
+            background-color: #1a73e8; /* Standard Google blue for primary action */
+            color: white;
+            padding: 10px 16px; /* Standard button padding */
+            border: none;
+            border-radius: 4px; /* Standard button rounded corners */
+            cursor: pointer;
+            font-size: 0.95em; /* Slightly smaller font for buttons */
+            font-weight: 500; /* Medium weight */
+            width: 100%;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Simpler transitions */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px; /* Spacing between icon and text */
+        }
+        /* Hover effect for the button */
         button:hover {
-            background-color: #2980b9;
+            background-color: #1764cc; /* Darker blue on hover */
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); /* Subtle hover shadow */
         }
+        /* Active (pressed) effect for the button */
+        button:active {
+            background-color: #1456b3; /* Even darker blue on active */
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* Inset shadow for pressed effect */
+        }
+        /* Styling for the status message area */
         #statusMessage {
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: green;
+            margin-top: 8px;
+            font-size: 0.85em; /* Smaller font for status */
+            font-weight: 400; /* Regular weight */
+            text-align: center;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Animation for showing/hiding */
+            transform: translateY(8px); /* Initial offset for animation */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        /* Class to show the status message */
+        #statusMessage.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Color for success messages */
+        #statusMessage.success {
+            color: #188038; /* Google green for success */
+        }
+        /* Color for error messages */
+        #statusMessage.error {
+            color: #d93025; /* Google red for error */
         }
     </style>
 </head>
 <body>
-    <h2>History Cleanup Settings</h2>
-    <label for="daysInput">Keep history for (days):</label>
-    <input type="number" id="daysInput" min="0" value="30">
-    <button id="saveButton">Save</button>
-    <div id="statusMessage"></div>
+    <div class="container">
+        <h2>History Cleanup Settings</h2>
+        <div class="flex flex-col">
+            <label for="daysInput">Keep history for (days):</label>
+            <input type="number" id="daysInput" min="0" value="30">
+        </div>
+        <button id="saveButton">
+            <span id="saveIcon">💾</span> Save Settings
+        </button>
+        <div id="statusMessage">
+            <span id="statusIcon"></span> <span id="statusText"></span>
+        </div>
+    </div>
 
+    <!-- Link to the JavaScript logic for the popup -->
     <script src="popup.js"></script>
 </body>
 </html>

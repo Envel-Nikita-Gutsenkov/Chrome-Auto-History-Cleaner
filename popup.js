@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const daysInput = document.getElementById('daysInput');
     const saveButton = document.getElementById('saveButton');
     const statusMessage = document.getElementById('statusMessage');
-    const statusText = document.getElementById('statusText'); // Reference to the span for text content
-    const statusIcon = document.getElementById('statusIcon'); // Reference to the span for icon content
+    const statusText = document.getElementById('statusText');
+    const statusIcon = document.getElementById('statusIcon');
 
     // Retrieve and display the saved retention setting when the popup opens
     chrome.storage.sync.get(['daysToKeep'], (result) => {
@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Determine cleanup frequency based on user's retention setting
         let cleanupIntervalMinutes;
         if (days === 0) {
             cleanupIntervalMinutes = 60; // Hourly cleanup for 0-day retention
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.storage.sync.set({ daysToKeep: days }, () => {
             statusText.textContent = 'Settings saved!';
             statusIcon.textContent = '✅';
-            statusMessage.classList.add('show', 'success'); // Adds the 'show' and 'success' classes to make the message visible
+            statusMessage.classList.add('show', 'success');
 
             // Send a message to the background script to update its cleanup schedule
             chrome.runtime.sendMessage({ action: "updateSchedule", interval: cleanupIntervalMinutes }, (response) => {
@@ -54,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Temporarily display status message, then clear it
             setTimeout(() => {
-                statusMessage.classList.remove('show', 'success', 'error'); // Removes the 'show' class to hide the message
+                statusMessage.classList.remove('show', 'success', 'error');
                 statusText.textContent = '';
                 statusIcon.textContent = '';
             }, 3000);

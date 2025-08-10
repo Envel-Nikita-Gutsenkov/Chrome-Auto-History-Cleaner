@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Auto History Cleaner",
-  "version": "1.0",
+  "version": "1.2",
   "description": "Automatically deletes browser history older than a specified number of days.",
   "permissions": [
     "history",

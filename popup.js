@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const daysInput = document.getElementById('daysInput');
     const saveButton = document.getElementById('saveButton');
-    const statusMessage = document.getElementById('statusMessage');
-    const statusText = document.getElementById('statusText');
-    const statusIcon = document.getElementById('statusIcon');
 
     // Retrieve and display the saved retention setting when the popup opens
     chrome.storage.sync.get(['daysToKeep'], (result) => {
@@ -16,16 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     saveButton.addEventListener('click', () => {
         const days = parseInt(daysInput.value);
 
-        // Reset status message state before showing new message
-        statusMessage.classList.remove('show', 'success', 'error');
-        statusText.textContent = '';
-        statusIcon.textContent = '';
 
         // Validate user input for retention days
         if (isNaN(days) || days < 0) {
-            statusText.textContent = 'Please enter a positive number.';
-            statusIcon.textContent = '❌';
-            statusMessage.classList.add('show', 'error');
+            alert('Please enter a positive number.');
             return;
         }
 
@@ -38,25 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Save the new retention setting to Chrome's sync storage
         chrome.storage.sync.set({ daysToKeep: days }, () => {
-            statusText.textContent = 'Settings saved!';
-            statusIcon.textContent = '✅';
-            statusMessage.classList.add('show', 'success');
+            const originalText = saveButton.textContent;
+            saveButton.textContent = '✓ Saved!';
+            saveButton.classList.add('success');
+            saveButton.disabled = true;
 
             // Send a message to the background script to update its cleanup schedule
-            chrome.runtime.sendMessage({ action: "updateSchedule", interval: cleanupIntervalMinutes }, (response) => {
-                if (chrome.runtime.lastError) {
-                    console.error("Error sending message:", chrome.runtime.lastError);
-                } else {
-                    console.log("Response from background:", response);
-                }
-            });
+            chrome.runtime.sendMessage({ action: "updateSchedule", interval: cleanupIntervalMinutes });
 
             // Temporarily display status message, then clear it
             setTimeout(() => {
-                statusMessage.classList.remove('show', 'success', 'error');
-                statusText.textContent = '';
-                statusIcon.textContent = '';
-            }, 3000);
+                saveButton.textContent = originalText;
+                saveButton.classList.remove('success');
+                saveButton.disabled = false;
+            }, 2000);
         });
     });
 });

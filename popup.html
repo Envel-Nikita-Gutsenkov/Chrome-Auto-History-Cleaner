@@ -76,24 +76,8 @@
             background-color: #1765cc;
         }
 
-        #statusMessage {
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            margin-top: 10px;
-            font-size: 12px;
-        }
-
-        #statusMessage.show {
-            opacity: 1;
-        }
-
-        #statusMessage.success {
-            color: #1a73e8;
-        }
-
-        #statusMessage.error {
-            color: #d93025;
+        .save-btn.success {
+            background-color: #1e8e3e;
         }
     </style>
 </head>
@@ -105,9 +89,6 @@
         <input type="number" id="daysInput" min="0" value="30">
     </div>
     <button id="saveButton" class="save-btn">Save Settings</button>
-    <div id="statusMessage">
-        <span id="statusIcon"></span> <span id="statusText"></span>
-    </div>
     <script src="popup.js"></script>
 </body>
 

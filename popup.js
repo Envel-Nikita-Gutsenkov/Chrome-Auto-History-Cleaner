@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Localization
+    const localize = () => {
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(element => {
+            const message = chrome.i18n.getMessage(element.getAttribute('data-i18n'));
+            if (message) {
+                element.textContent = message;
+            }
+        });
+    };
+    localize();
+
     const daysInput = document.getElementById('daysInput');
     const saveButton = document.getElementById('saveButton');
 
@@ -16,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Validate user input for retention days
         if (isNaN(days) || days < 0) {
-            alert('Please enter a positive number.');
+            alert(chrome.i18n.getMessage('errorPositiveNumber'));
             return;
         }
 
@@ -30,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Save the new retention setting to Chrome's sync storage
         chrome.storage.sync.set({ daysToKeep: days }, () => {
             const originalText = saveButton.textContent;
-            saveButton.textContent = '✓ Saved!';
+            saveButton.textContent = chrome.i18n.getMessage('saveSuccess');
             saveButton.classList.add('success');
             saveButton.disabled = true;
 

@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Auto History Cleaner",
+  "name": "__MSG_extName__",
   "version": "1.2",
-  "description": "Automatically deletes browser history older than a specified number of days.",
+  "description": "__MSG_extDescription__",
+  "default_locale": "en",
   "permissions": [
     "history",
     "storage",

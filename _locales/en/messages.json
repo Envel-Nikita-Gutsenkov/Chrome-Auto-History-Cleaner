@@ -1,0 +1,30 @@
+{
+  "extName": {
+    "message": "Auto History Cleaner",
+    "description": "The name of the extension."
+  },
+  "extDescription": {
+    "message": "Automatically deletes browser history older than a specified number of days.",
+    "description": "The description of the extension."
+  },
+  "popupTitle": {
+    "message": "Auto History Cleaner",
+    "description": "Title shown in the popup."
+  },
+  "keepHistoryLabel": {
+    "message": "Keep history for (days):",
+    "description": "Label for the days input."
+  },
+  "saveButton": {
+    "message": "Save Settings",
+    "description": "Text for the save button."
+  },
+  "saveSuccess": {
+    "message": "✓ Saved!",
+    "description": "Feedback shown when settings are saved."
+  },
+  "errorPositiveNumber": {
+    "message": "Please enter a positive number.",
+    "description": "Error message for invalid input."
+  }
+}

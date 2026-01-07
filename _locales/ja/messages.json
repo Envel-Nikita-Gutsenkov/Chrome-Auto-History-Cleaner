@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "自動履歴クリーナー",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "指定した日数より古いブラウザ履歴を自動的に削除します。",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "履歴クリーナー",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "履歴を保持する日数:",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "設定を保存",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ 保存されました！",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "正の数値を入力してください。",
+        "description": "Error message for invalid input."
+    }
+}

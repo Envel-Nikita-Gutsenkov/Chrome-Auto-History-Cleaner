@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "ऑटो इतिहास क्लीनर",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "निर्दिष्ट दिनों से पुराने ब्राउज़र इतिहास को स्वचालित रूप से हटा देता है।",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "इतिहास क्लीनर",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "इतिहास रखें (दिन):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "सेटिंग्स सहेजें",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ सहेजा गया!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "कृपया एक सकारात्मक संख्या दर्ज करें।",
+        "description": "Error message for invalid input."
+    }
+}

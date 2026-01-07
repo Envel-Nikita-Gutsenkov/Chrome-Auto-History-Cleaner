@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "자동 방문 기록 관리자",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "지정된 일수보다 오래된 브라우저 방문 기록을 자동으로 삭제합니다.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "방문 기록 관리자",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "방문 기록 보관 일수:",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "설정 저장",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ 저장됨!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "양수를 입력해 주세요.",
+        "description": "Error message for invalid input."
+    }
+}

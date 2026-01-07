@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Limpador Automático de Histórico",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Exclui automaticamente o histórico do navegador com mais de um número especificado de dias.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Limpador de Histórico",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Manter histórico por (dias):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Salvar Configurações",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Salvo!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Por favor, insira um número positivo.",
+        "description": "Error message for invalid input."
+    }
+}

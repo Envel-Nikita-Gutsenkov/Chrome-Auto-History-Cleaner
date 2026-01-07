@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Automatischer Verlaufsreiniger",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Löscht automatisch den Browserverlauf, der älter als eine bestimmte Anzahl von Tagen ist.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Verlaufsreiniger",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Verlauf behalten für (Tage):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Einstellungen speichern",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Gespeichert!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Bitte geben Sie eine positive Zahl ein.",
+        "description": "Error message for invalid input."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Limpiador automático de historial",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Elimina automáticamente el historial del navegador más antiguo que un número especificado de días.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Limpiador de historial",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Mantener historial por (días):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Guardar ajustes",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ ¡Guardado!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Por favor, introduce un número positivo.",
+        "description": "Error message for invalid input."
+    }
+}

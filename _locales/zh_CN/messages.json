@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "自动历史记录清理器",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "自动删除超过指定天数的浏览器历史记录。",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "历史记录清理器",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "保留历史记录的天数：",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "保存设置",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ 已保存！",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "请输入正数。",
+        "description": "Error message for invalid input."
+    }
+}

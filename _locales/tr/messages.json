@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Otomatik Geçmiş Temizleyici",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Belirli bir günden daha eski tarayıcı geçmişini otomatik olarak siler.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Geçmiş Temizleyici",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Geçmişi sakla (gün):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Ayarları Kaydet",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Kaydedildi!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Lütfen pozitif bir sayı girin.",
+        "description": "Error message for invalid input."
+    }
+}

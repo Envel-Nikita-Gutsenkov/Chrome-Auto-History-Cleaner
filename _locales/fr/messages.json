@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Nettoyeur automatique d'historique",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Supprime automatiquement l'historique du navigateur datant de plus d'un nombre de jours spécifié.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Nettoyeur d'historique",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Garder l'historique (jours) :",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Enregistrer les paramètres",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Enregistré !",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Veuillez entrer un nombre positif.",
+        "description": "Error message for invalid input."
+    }
+}

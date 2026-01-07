@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Pulitore automatico cronologia",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Elimina automaticamente la cronologia del browser più vecchia di un numero specificato di giorni.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Pulitore cronologia",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Mantieni cronologia per (giorni):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Salva impostazioni",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Salvato!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Per favore, inserisci un numero positivo.",
+        "description": "Error message for invalid input."
+    }
+}

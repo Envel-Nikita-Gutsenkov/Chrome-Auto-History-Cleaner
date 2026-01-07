@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             background-color: #f7f7f7;
             color: #3c4043;
         }
+
         h2 {
             font-size: 18px;
             font-weight: 600;
@@ -19,6 +21,7 @@
             color: #202124;
             text-align: center;
         }
+
         .flex {
             display: flex;
             align-items: center;
@@ -26,12 +29,14 @@
             margin-top: 10px;
             gap: 10px;
         }
+
         label {
             flex-grow: 1;
             font-size: 14px;
             font-weight: 500;
             color: #202124;
         }
+
         input[type="number"] {
             width: 80px;
             padding: 8px;
@@ -44,10 +49,12 @@
             color: #202124;
             transition: border-color 0.2s ease-in-out;
         }
+
         input[type="number"]:focus {
             outline: none;
             border-color: #4285f4;
         }
+
         button {
             width: 100%;
             padding: 10px;
@@ -60,12 +67,15 @@
             font-size: 14px;
             transition: background-color 0.2s;
         }
+
         .save-btn {
-            background-color: #188038;
+            background-color: #1a73e8;
         }
+
         .save-btn:hover {
-            background-color: #156d30;
+            background-color: #1765cc;
         }
+
         #statusMessage {
             text-align: center;
             opacity: 0;
@@ -73,17 +83,21 @@
             margin-top: 10px;
             font-size: 12px;
         }
+
         #statusMessage.show {
             opacity: 1;
         }
+
         #statusMessage.success {
-            color: #188038;
+            color: #1a73e8;
         }
+
         #statusMessage.error {
             color: #d93025;
         }
     </style>
 </head>
+
 <body>
     <h2>Auto History Cleaner</h2>
     <div class="flex">
@@ -96,4 +110,5 @@
     </div>
     <script src="popup.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Curățare automată istoric",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Șterge automat istoricul browserului mai vechi de un număr specificat de zile.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Curățare istoric",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Păstrează istoricul pentru (zile):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Salvează setările",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Salvat!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Vă rugăm să introduceți un număr pozitiv.",
+        "description": "Error message for invalid input."
+    }
+}

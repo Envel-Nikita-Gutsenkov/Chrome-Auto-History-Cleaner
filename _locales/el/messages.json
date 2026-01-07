@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Αυτόματο καθάρισμα ιστορικού",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Διαγράφει αυτόματα το ιστορικό του προγράμματος περιήγησης που είναι παλαιότερο από έναν καθορισμένο αριθμό ημερών.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Καθάρισμα ιστορικού",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Διατήρηση ιστορικού για (ημέρες):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Αποθήκευση ρυθμίσεων",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Αποθηκεύτηκε!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Παρακαλώ εισάγετε έναν θετικό αριθμό.",
+        "description": "Error message for invalid input."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "מנקה היסטוריה אוטומטי",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "מוחק באופן אוטומטי את היסטוריית הדפדפן הישנה ממספר ימים מסוים.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "מנקה היסטוריה",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "שמור היסטוריה למשך (ימים):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "שמור הגדרות",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ נשמר!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "אנא הזן מספר חיובי.",
+        "description": "Error message for invalid input."
+    }
+}

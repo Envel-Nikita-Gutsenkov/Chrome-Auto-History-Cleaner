@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Automatyczne czyszczenie historii",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Automatycznie usuwa historię przeglądarki starszą niż określona liczba dni.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Czyszczenie historii",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Zachowaj historię przez (dni):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Zapisz ustawienia",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Zapisano!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Wprowadź liczbę dodatnią.",
+        "description": "Error message for invalid input."
+    }
+}

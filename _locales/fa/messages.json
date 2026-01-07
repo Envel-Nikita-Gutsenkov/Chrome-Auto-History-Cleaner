@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "پاک‌کننده خودکار تاریخچه",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "به‌طور خودکار تاریخچه مرورگر قدیمی‌تر از تعداد روزهای مشخص شده را پاک می‌کند.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "پاک‌کننده تاریخچه",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "نگهداری تاریخچه برای (روز):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "ذخیره تنظیمات",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ ذخیره شد!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "لطفاً یک عدد مثبت وارد کنید.",
+        "description": "Error message for invalid input."
+    }
+}

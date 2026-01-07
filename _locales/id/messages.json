@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Pembersih Riwayat Otomatis",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Menghapus riwayat browser yang lebih lama dari jumlah hari yang ditentukan secara otomatis.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Pembersih Riwayat",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Simpan riwayat selama (hari):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Simpan Pengaturan",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Tersimpan!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Harap masukkan angka positif.",
+        "description": "Error message for invalid input."
+    }
+}

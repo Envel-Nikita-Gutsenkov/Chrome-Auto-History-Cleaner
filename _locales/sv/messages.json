@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Automatisk historikrensare",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Tar automatiskt bort webbhistorik som är äldre än ett visst antal dagar.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Historikrensare",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Behåll historik i (dagar):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Spara inställningar",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Sparat!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Ange ett positivt tal.",
+        "description": "Error message for invalid input."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Automatický čistič historie",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Automaticky maže historii prohlížeče starší než zadaný počet dní.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Čistič historie",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Uchovávat historii (dní):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Uložit nastavení",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Uloženo!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Prosím zadejte kladné číslo.",
+        "description": "Error message for invalid input."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Trình dọn dẹp lịch sử tự động",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Tự động xóa lịch sử trình duyệt cũ hơn số ngày được chỉ định.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Trình dọn dẹp lịch sử",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Giữ lịch sử trong (ngày):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Lưu cài đặt",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Đã lưu!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Vui lòng nhập một số dương.",
+        "description": "Error message for invalid input."
+    }
+}

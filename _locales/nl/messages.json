@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Automatische geschiedeniswisser",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Verwijdert automatisch de browsergeschiedenis die ouder is dan een specifiek aantal dagen.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Geschiedeniswisser",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Geschiedenis bewaren voor (dagen):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Instellingen opslaan",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Opgeslagen!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Voer een positief getal in.",
+        "description": "Error message for invalid input."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Automatisk historikrenser",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Sletter automatisk browserhistorik, der er ældre end et bestemt antal dage.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Historikrenser",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Behold historik i (dage):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Gem indstillinger",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Gemt!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Indtast venligst et positivt tal.",
+        "description": "Error message for invalid input."
+    }
+}

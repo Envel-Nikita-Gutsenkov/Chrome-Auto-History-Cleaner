@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "ตัวล้างประวัติอัตโนมัติ",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "ลบประวัติการเข้าชมที่เก่ากว่าจำนวนวันที่ระบุโดยอัตโนมัติ",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "ตัวล้างประวัติ",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "เก็บประวัติไว้ (วัน):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "บันทึกการตั้งค่า",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ บันทึกแล้ว!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "โปรดป้อนตัวเลขบวก",
+        "description": "Error message for invalid input."
+    }
+}

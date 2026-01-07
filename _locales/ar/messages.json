@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "منظف السجل التلقائي",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "يحذف سجل المتصفح الأقدم من عدد محدد من الأيام تلقائيًا.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "منظف السجل",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "الاحتفاظ بالسجل لمدة (أيام):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "حفظ الإعدادات",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ تم الحفظ!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "يرجى إدخال رقم موجب.",
+        "description": "Error message for invalid input."
+    }
+}

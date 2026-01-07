@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "অটো হিস্টোরি ক্লিনার",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "একটি নির্দিষ্ট দিনের চেয়ে পুরনো ব্রাউজার ইতিহাস স্বয়ংক্রিয়ভাবে মুছে ফেলে।",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "হিস্টোরি ক্লিনার",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "হিস্টোরি রাখুন (দিন):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "সেটিংস সংরক্ষণ করুন",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ সংরক্ষিত!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "দয়া করে একটি ধনাত্মক সংখ্যা লিখুন।",
+        "description": "Error message for invalid input."
+    }
+}

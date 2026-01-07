@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Automaattinen historian puhdistaja",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Poistaa automaattisesti selainhistorian, joka on vanhempi kuin tietty määrä päiviä.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Historian puhdistaja",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Säilytä historia (päivää):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Tallenna asetukset",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Tallennettu!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Ole hyvä ja syötä positiivinen luku.",
+        "description": "Error message for invalid input."
+    }
+}

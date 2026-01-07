@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Pembersih Sejarah Automatik",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Memadamkan sejarah penyemak imbas secara automatik yang lebih lama daripada bilangan hari yang ditentukan.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Pembersih Sejarah",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Simpan sejarah selama (hari):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Simpan Tetapan",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Disimpan!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Sila masukkan nombor positif.",
+        "description": "Error message for invalid input."
+    }
+}

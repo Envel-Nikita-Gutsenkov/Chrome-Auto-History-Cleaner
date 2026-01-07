@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Automatikus előzménytörlő",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Automatikusan törli a böngésző előzményeit, amelyek régebbiek a megadott napok számánál.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Előzménytörlő",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Előzmények megőrzése (nap):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "Beállítások mentése",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Mentve!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Kérjük, adjon meg egy pozitív számot.",
+        "description": "Error message for invalid input."
+    }
+}

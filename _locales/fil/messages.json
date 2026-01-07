@@ -1,0 +1,30 @@
+{
+    "extName": {
+        "message": "Awtomatikong Tagalinis ng Kasaysayan",
+        "description": "The name of the extension."
+    },
+    "extDescription": {
+        "message": "Awtomatikong tinatanggal ang kasaysayan ng browser na mas luma kaysa sa tinukoy na bilang ng mga araw.",
+        "description": "The description of the extension."
+    },
+    "popupTitle": {
+        "message": "Tagalinis ng Kasaysayan",
+        "description": "Title shown in the popup."
+    },
+    "keepHistoryLabel": {
+        "message": "Panatilihin ang kasaysayan sa loob ng (mga araw):",
+        "description": "Label for the days input."
+    },
+    "saveButton": {
+        "message": "I-save ang mga Setting",
+        "description": "Text for the save button."
+    },
+    "saveSuccess": {
+        "message": "✓ Naka-save na!",
+        "description": "Feedback shown when settings are saved."
+    },
+    "errorPositiveNumber": {
+        "message": "Mangyaring maglagay ng positibong numero.",
+        "description": "Error message for invalid input."
+    }
+}

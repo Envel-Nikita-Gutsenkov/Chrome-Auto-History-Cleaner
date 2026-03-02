@@ -1,66 +1,59 @@
-# Auto History Cleaner 🧹
+# Auto Profile Cleaner 🧹
 
-A minimalist Chrome extension built with Manifest V3 that automatically cleans your browser history. You can set a retention period in days, and if set to zero, it offers a more aggressive hourly cleanup.
+A powerful Chrome extension built with Manifest V3 that automatically performs deep cleaning of your browser profile. It allows you to configure specific retention periods (in days) for various types of browsing data (History, Downloads, Cache, Service Workers, File Systems, IndexedDB) while **strictly preserving your cookies and active authorizations**.
 
 ---
 
 ## ✨ Features
 
-* **Automatic Cleanup:** Periodically deletes Browse history older than a specified number of days.
-* **Configurable Retention:** Easily set the number of days to keep your history via a simple popup.
-* **Aggressive Cleanup Option:** When set to `0` days, history is cleared every hour for enhanced privacy.
-* **Manifest V3:** Built using the latest Chrome extension platform for improved security and performance.
-* **Lightweight & Efficient:** Utilizes Chrome's `alarms` API and Service Workers for optimized background processing.
+* **Granular Control:** Independently set different retention periods (0-N days) for 6 distinct data types.
+* **Deep Cleaning:** Uses the `chrome.browsingData` API to clear out heavy background data like CacheStorage, Service Workers, File Systems, and IndexedDB to free up disk space.
+* **Safe for Authorizations:** Purpose-built to *never* delete Cookies, Passwords, or LocalStorage. You remain logged into your accounts while the invisible web junk is safely purged.
+* **Transparent Logging:** Includes a built-in logs viewer in the popup so you always know exactly what was cleaned and when.
+* **Manifest V3:** Built using the latest, most secure Chrome extension platform standards.
+* **Lightweight & Efficient:** Utilizes Chrome's `alarms` API and Service Workers for optimized performance with minimal memory footprint.
 
 ---
 
 ## 🚀 Installation
 
 1.  **Download/Clone:** Download or clone this repository to your local machine.
-
 2.  **Open Chrome Extensions:**
     * Open your Chrome browser.
     * Navigate to `chrome://extensions`.
-
 3.  **Enable Developer Mode:**
     * In the top right corner, toggle on **"Developer mode"**.
-
 4.  **Load Unpacked Extension:**
     * Click the **"Load unpacked"** button that appears.
-    * Select the directory where you downloaded/cloned the extension (`auto-history-cleaner`).
-
+    * Select the directory where you downloaded/cloned the extension.
 5.  **Pin (Optional):**
     * Click the puzzle piece icon next to your profile avatar in Chrome's toolbar.
-    * Find "Auto History Cleaner" and click the pin icon next to it to make it easily accessible.
+    * Find "Auto Profile Cleaner" and click the pin icon next to it to make it easily accessible.
 
 ---
 
 ## 🛠️ Usage
 
-1.  **Click the Extension Icon:** Click the "Auto History Cleaner" icon in your Chrome toolbar.
-2.  **Set Retention:** In the popup, enter the number of days you want to keep your Browse history.
-    * Enter `30` to keep history for the last 30 days.
-    * Enter `0` to delete all history older than 0 days (i.e., clear everything) every hour.
-3.  **Save Settings:** Click the **"Save"** button.
-
-The extension will perform an immediate cleanup based on your settings and then continue to clean periodically (hourly if set to 0 days, or every 24 hours otherwise).
+1.  **Click the Extension Icon:** Click the "Auto Profile Cleaner" icon in your Chrome toolbar.
+2.  **Configure Clean Settings:**
+    * Under the settings tab, use the checkboxes to select which items you want to include in automatic background cleanups.
+    * For each enabled item, set the retention period (e.g., `30` removes anything older than 30 days, `0` deletes that data every hour).
+3.  **Save Settings:** Click the **"Save Settings"** button. The extension will perform an immediate cleanup run for old data and schedule future alarms.
+4.  **Check Logs:** Switch to the **Logs** tab at any point to view the last 100 automated cleanup actions performed by the extension.
 
 ---
 
 ## 📁 Project Structure
 
-````
-
-auto-history-cleaner/
-├── manifest.json       \# Extension manifest (defines permissions, background script, etc.)
-├── background.js       \# Service Worker: Handles history cleaning logic and alarm scheduling
-├── popup.html          \# HTML for the extension's popup interface
-├── popup.js            \# JavaScript for handling user interaction in the popup
-└── icons/              \# Directory for extension icons
-├── icon16.png
-├── icon48.png
-└── icon128.png
-````
+```
+chrome-auto-history-cleaner/
+├── manifest.json       # Extension manifest (defines permissions, required APIs)
+├── background.js       # Service Worker: Handles the alarm scheduling and actual browsingData cleaning logic
+├── popup.html          # HTML structure for the popup interface (Tabs, Checkboxes, Inputs)
+├── popup.js            # JavaScript to handle the graphical interface functionality, settings mapping, and log retrieval
+├── _locales/           # i18n Translations (English, Russian, etc.)
+└── icons/              # Extension icons directory
+```
 
 ---
 

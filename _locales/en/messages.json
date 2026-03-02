@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Auto History Cleaner",
+    "message": "Auto Profile Cleaner",
     "description": "The name of the extension."
   },
   "extDescription": {
-    "message": "Automatically deletes browser history older than a specified number of days.",
+    "message": "Automatically deep-cleans your browser profile (Cache, SW, etc) while safely keeping your authorizations and cookies.",
     "description": "The description of the extension."
   },
   "popupTitle": {
@@ -26,5 +26,43 @@
   "errorPositiveNumber": {
     "message": "Please enter a positive number.",
     "description": "Error message for invalid input."
+  },
+  "tabSettings": {
+    "message": "Settings",
+    "description": "Tab for settings"
+  },
+  "tabLogs": {
+    "message": "Logs",
+    "description": "Tab for logs"
+  },
+  "cleanHistory": {
+    "message": "Browsing History"
+  },
+  "cleanDownloads": {
+    "message": "Downloads History"
+  },
+  "cleanCache": {
+    "message": "Cache (Images, Files, CacheStorage)"
+  },
+  "cleanServiceWorkers": {
+    "message": "Service Workers"
+  },
+  "cleanFileSystems": {
+    "message": "File Systems"
+  },
+  "cleanIndexedDB": {
+    "message": "IndexedDB / WebSQL"
+  },
+  "clearLogsButton": {
+    "message": "Clear Logs"
+  },
+  "noLogs": {
+    "message": "No cleanup logs yet."
+  },
+  "cleanDescriptionLabel": {
+    "message": "Select data types to clean:"
+  },
+  "daysLabel": {
+    "message": "days"
   }
 }

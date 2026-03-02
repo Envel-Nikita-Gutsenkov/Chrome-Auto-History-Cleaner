@@ -8,57 +8,132 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            width: 300px;
+            width: 340px;
             padding: 10px;
             background-color: #f7f7f7;
             color: #3c4043;
+            margin: 0;
         }
 
         h2 {
             font-size: 18px;
             font-weight: 600;
-            margin: 0 0 10px 0;
+            margin: 5px 0 15px 0;
             color: #202124;
             text-align: center;
         }
 
-        .flex {
+        .tabs {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 10px;
-            gap: 10px;
+            border-bottom: 1px solid #dadce0;
+            margin-bottom: 15px;
         }
 
-        label {
-            flex-grow: 1;
+        .tab-btn {
+            flex: 1;
+            padding: 8px 0;
+            background: none;
+            border: none;
+            cursor: pointer;
             font-size: 14px;
             font-weight: 500;
+            color: #5f6368;
+            border-bottom: 2px solid transparent;
+            outline: none;
+        }
+
+        .tab-btn.active {
+            color: #1a73e8;
+            border-bottom: 2px solid #1a73e8;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            color: #1a73e8;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #dadce0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .checkbox-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox-item label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            font-size: 12px;
+            cursor: pointer;
+            flex: 1;
             color: #202124;
         }
 
-        input[type="number"] {
-            width: 80px;
-            padding: 8px;
-            font-size: 14px;
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .days-config {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: #5f6368;
+        }
+
+        .days-config input[type="number"] {
+            width: 45px;
+            padding: 4px;
+            font-size: 12px;
             text-align: center;
             border: 1px solid #dadce0;
-            border-radius: 8px;
-            box-sizing: border-box;
+            border-radius: 4px;
             background-color: #ffffff;
             color: #202124;
             transition: border-color 0.2s ease-in-out;
         }
 
-        input[type="number"]:focus {
+        .days-config input[type="number"]:focus {
             outline: none;
             border-color: #4285f4;
         }
 
-        button {
+        .days-config input[type="number"]:disabled {
+            background-color: #f1f3f4;
+            color: #9aa0a6;
+            border-color: #f1f3f4;
+        }
+
+        button.action-btn {
             width: 100%;
             padding: 10px;
-            margin-top: 10px;
+            margin-top: 15px;
             cursor: pointer;
             border: none;
             border-radius: 8px;
@@ -79,16 +154,111 @@
         .save-btn.success {
             background-color: #1e8e3e;
         }
+
+        .clear-btn {
+            background-color: #d93025;
+        }
+
+        .clear-btn:hover {
+            background-color: #b3261e;
+        }
+
+        .logs-container {
+            max-height: 250px;
+            overflow-y: auto;
+            background: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 12px;
+            color: #3c4043;
+        }
+
+        .log-entry {
+            border-bottom: 1px solid #f1f3f4;
+            padding: 6px 0;
+        }
+
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+
+        .log-time {
+            font-size: 11px;
+            color: #80868b;
+            margin-bottom: 2px;
+        }
+
+        .no-logs {
+            text-align: center;
+            color: #80868b;
+            padding: 20px 0;
+            font-style: italic;
+        }
     </style>
 </head>
 
 <body data-i18n-processed="false">
-    <h2 data-i18n="popupTitle">Auto History Cleaner</h2>
-    <div class="flex">
-        <label for="daysInput" data-i18n="keepHistoryLabel">Keep history for (days):</label>
-        <input type="number" id="daysInput" min="0" value="30">
+    <h2 data-i18n="popupTitle">Auto Profile Cleaner</h2>
+
+    <div class="tabs">
+        <button id="tabSettingsBtn" class="tab-btn active" data-i18n="tabSettings">Settings</button>
+        <button id="tabLogsBtn" class="tab-btn" data-i18n="tabLogs">Logs</button>
     </div>
-    <button id="saveButton" class="save-btn" data-i18n="saveButton">Save Settings</button>
+
+    <div id="tabSettings" class="tab-content active">
+        <p class="section-title" data-i18n="cleanDescriptionLabel">Select data types to clean (Authentication data is
+            preserved):</p>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <label><input type="checkbox" id="chk_history" checked> <span data-i18n="cleanHistory">Browsing
+                        History</span></label>
+                <div class="days-config"><input type="number" id="days_history" min="0" value="30"> <span
+                        data-i18n="daysLabel">days</span></div>
+            </div>
+            <div class="checkbox-item">
+                <label><input type="checkbox" id="chk_downloads" checked> <span data-i18n="cleanDownloads">Downloads
+                        History</span></label>
+                <div class="days-config"><input type="number" id="days_downloads" min="0" value="30"> <span
+                        data-i18n="daysLabel">days</span></div>
+            </div>
+            <div class="checkbox-item">
+                <label><input type="checkbox" id="chk_cache" checked> <span data-i18n="cleanCache">Cache (Images, Files,
+                        CacheStorage)</span></label>
+                <div class="days-config"><input type="number" id="days_cache" min="0" value="7"> <span
+                        data-i18n="daysLabel">days</span></div>
+            </div>
+            <div class="checkbox-item">
+                <label><input type="checkbox" id="chk_serviceWorkers" checked> <span
+                        data-i18n="cleanServiceWorkers">Service Workers</span></label>
+                <div class="days-config"><input type="number" id="days_serviceWorkers" min="0" value="30"> <span
+                        data-i18n="daysLabel">days</span></div>
+            </div>
+            <div class="checkbox-item">
+                <label><input type="checkbox" id="chk_fileSystems" checked> <span data-i18n="cleanFileSystems">File
+                        Systems</span></label>
+                <div class="days-config"><input type="number" id="days_fileSystems" min="0" value="30"> <span
+                        data-i18n="daysLabel">days</span></div>
+            </div>
+            <div class="checkbox-item">
+                <label><input type="checkbox" id="chk_indexedDB" checked> <span data-i18n="cleanIndexedDB">IndexedDB /
+                        WebSQL</span></label>
+                <div class="days-config"><input type="number" id="days_indexedDB" min="0" value="30"> <span
+                        data-i18n="daysLabel">days</span></div>
+            </div>
+        </div>
+
+        <button id="saveButton" class="action-btn save-btn" data-i18n="saveButton">Save Settings</button>
+    </div>
+
+    <div id="tabLogs" class="tab-content">
+        <div class="logs-container" id="logsContainer">
+            <div class="no-logs" data-i18n="noLogs">No cleanup logs yet.</div>
+        </div>
+        <button id="clearLogsBtn" class="action-btn clear-btn" data-i18n="clearLogsButton" style="display: none;">Clear
+            Logs</button>
+    </div>
+
     <script src="popup.js"></script>
 </body>
 

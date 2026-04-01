@@ -32,13 +32,13 @@
         .header {
             background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
             color: white;
-            padding: 20px 15px;
+            padding: 12px 10px;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         h2 {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 600;
             margin: 0;
         }
@@ -54,11 +54,11 @@
 
         .tab-btn {
             flex: 1;
-            padding: 12px 0;
+            padding: 10px 0;
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--text-secondary);
             border-bottom: 3px solid transparent;
@@ -71,15 +71,15 @@
         }
 
         .container {
-            padding: 15px;
+            padding: 12px;
         }
 
         .card {
             background: var(--card-bg);
             border-radius: 12px;
             border: 1px solid var(--border);
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 12px;
+            margin-bottom: 12px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
@@ -96,7 +96,7 @@
         .checkbox-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .checkbox-item {
@@ -117,8 +117,11 @@
         .checkbox-item input[type="checkbox"] {
             width: 16px;
             height: 16px;
-            margin-right: 10px;
+            min-width: 16px;
+            min-height: 16px;
+            margin: 0 10px 0 0;
             cursor: pointer;
+            padding: 0;
         }
 
         .days-config {
@@ -140,7 +143,7 @@
 
         .action-btn {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: none;
             border-radius: 8px;
             font-weight: 600;
@@ -258,27 +261,19 @@
                     <label><input type="checkbox" id="chk_indexedDB"> <span data-i18n="cleanIndexedDB">Storage</span></label>
                     <div class="days-config"><input type="number" id="days_indexedDB" min="0"> <span data-i18n="daysLabel">d</span></div>
                 </div>
-            </div>
-        </div>
-
-        <div class="card" style="border-left: 4px solid var(--primary);">
-            <div class="section-title">
-                <span data-i18n="smartCleanupTitle">Smart Site Cleanup</span>
-            </div>
-            <div class="checkbox-item">
-                <label style="font-weight: 500;"><input type="checkbox" id="chk_smartCleanup"> <span data-i18n="smartCleanupDesc">Wipe abandoned sites</span></label>
-                <div class="days-config" style="margin-left: 10px;">
-                    <input type="number" id="months_smartCleanup" min="1" max="12"> <span data-i18n="monthsLabel">mo</span>
+                <div class="checkbox-item">
+                    <label><input type="checkbox" id="chk_smartCleanup"> <span data-i18n="smartCleanupDesc">Wipe abandoned sites</span></label>
+                    <div class="days-config"><input type="number" id="months_smartCleanup" min="1" max="12"> <span data-i18n="monthsLabel">mo</span></div>
                 </div>
+                <p style="font-size: 11px; color: var(--text-secondary); margin: 0 0 0 26px; line-height: 1.1;" data-i18n="smartPolicyNote">
+                    Wipes data for sites NOT visited in the last N months.
+                </p>
             </div>
-            <p style="font-size: 11px; color: var(--text-secondary); margin: 8px 0 0 26px;" data-i18n="smartPolicyNote">
-                Wipes all data for sites NOT visited in the last N months.
-            </p>
         </div>
 
         <button id="saveButton" class="action-btn save-btn" data-i18n="saveButton">Save Settings</button>
 
-        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed var(--border);">
+        <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed var(--border);">
             <div class="section-title">
                 <span data-i18n="deepTitle">Deep Cache Cleanup</span>
             </div>
@@ -287,8 +282,8 @@
             </button>
             <div class="deep-desc">
                 <span data-i18n="deepDescPrefix">Wipes cache for sites not visited in</span>
-                <input type="number" id="deep_days" value="7" min="1" style="width: 35px; height: 18px; font-size: 11px;">
-                <span data-i18n="deepDescSuffix">days. Cookies kept.</span>
+                <input type="number" id="deep_days" value="7" min="1" style="width: 32px; height: 18px; font-size: 11px;">
+                <span data-i18n="deepDescSuffix">days.</span>
             </div>
         </div>
     </div>

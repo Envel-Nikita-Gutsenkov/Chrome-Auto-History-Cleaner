@@ -58,9 +58,33 @@
         "message": "Журнал очисток пуст."
     },
     "cleanDescriptionLabel": {
-        "message": "Задачи очистки:"
+        "message": "Общая очистка"
     },
     "daysLabel": {
-        "message": "дней"
+        "message": "д."
+    },
+    "smartCleanupTitle": {
+        "message": "Умная очистка сайтов"
+    },
+    "smartCleanupDesc": {
+        "message": "Удалять «заброшенные» сайты"
+    },
+    "monthsLabel": {
+        "message": "мес."
+    },
+    "smartPolicyNote": {
+        "message": "Полностью стирает данные сайтов, которые вы НЕ посещали последние N месяцев."
+    },
+    "deepTitle": {
+        "message": "Глубокая очистка кэша"
+    },
+    "deepBtnText": {
+        "message": "Очистить старый кэш"
+    },
+    "deepDescPrefix": {
+        "message": "Стирает кэш сайтов, не посещенных"
+    },
+    "deepDescSuffix": {
+        "message": "дн. назад. Куки останутся."
     }
-}
+}

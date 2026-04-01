@@ -60,9 +60,33 @@
     "message": "No cleanup logs yet."
   },
   "cleanDescriptionLabel": {
-    "message": "Select data types to clean:"
+    "message": "General Cleanup"
   },
   "daysLabel": {
-    "message": "days"
+    "message": "d"
+  },
+  "smartCleanupTitle": {
+    "message": "Smart Site Cleanup"
+  },
+  "smartCleanupDesc": {
+    "message": "Wipe abandoned sites"
+  },
+  "monthsLabel": {
+    "message": "mo"
+  },
+  "smartPolicyNote": {
+    "message": "Wipes all data for sites NOT visited in the last N months."
+  },
+  "deepTitle": {
+    "message": "Deep Cache Cleanup"
+  },
+  "deepBtnText": {
+    "message": "Wipe Old Cache"
+  },
+  "deepDescPrefix": {
+    "message": "Wipes cache for sites not visited in"
+  },
+  "deepDescSuffix": {
+    "message": "days. Cookies kept."
   }
-}
+}

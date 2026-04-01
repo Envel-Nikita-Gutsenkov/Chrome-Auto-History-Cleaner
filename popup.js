@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.forEach(element => {
             const message = chrome.i18n.getMessage(element.getAttribute('data-i18n'));
             if (message) {
-                if (element.tagName === 'INPUT' && element.type === 'button') {
+                if (element.tagName === 'INPUT' && (element.type === 'button' || element.type === 'submit')) {
                     element.value = message;
                 } else {
-                    element.textContent = message;
+                    element.innerHTML = message;
                 }
             }
         });
@@ -22,11 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabLogs = document.getElementById('tabLogs');
 
     const saveButton = document.getElementById('saveButton');
+    const deepButton = document.getElementById('deepButton');
     const logsContainer = document.getElementById('logsContainer');
     const clearLogsBtn = document.getElementById('clearLogsBtn');
 
-    // Types
-    const types = ['history', 'downloads', 'cache', 'serviceWorkers', 'fileSystems', 'indexedDB'];
+    // Types definition
+    const types = ['history', 'downloads', 'cache', 'indexedDB'];
     const elements = {};
 
     types.forEach(type => {
@@ -34,11 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
             checkbox: document.getElementById(`chk_${type}`),
             days: document.getElementById(`days_${type}`)
         };
-        // Disable days input if checkbox is unchecked
         elements[type].checkbox.addEventListener('change', (e) => {
             elements[type].days.disabled = !e.target.checked;
         });
     });
+
+    // Smart Cleanup elements
+    const smartChk = document.getElementById('chk_smartCleanup');
+    const smartMonths = document.getElementById('months_smartCleanup');
+    smartChk.addEventListener('change', (e) => {
+        smartMonths.disabled = !e.target.checked;
+    });
+
+    const deepDaysInput = document.getElementById('deep_days');
 
     // Tab switching logic
     tabSettingsBtn.addEventListener('click', () => {
@@ -46,8 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tabLogsBtn.classList.remove('active');
         tabSettings.style.display = 'block';
         tabLogs.style.display = 'none';
-        tabSettings.classList.add('active');
-        tabLogs.classList.remove('active');
     });
 
     tabLogsBtn.addEventListener('click', () => {
@@ -55,76 +62,79 @@ document.addEventListener('DOMContentLoaded', () => {
         tabSettingsBtn.classList.remove('active');
         tabLogs.style.display = 'block';
         tabSettings.style.display = 'none';
-        tabLogs.classList.add('active');
-        tabSettings.classList.remove('active');
         loadLogs();
     });
 
     // Retrieve and display saved settings
     chrome.storage.sync.get(['cleanSettings'], (result) => {
-        const defaultSettings = {
+        const settings = result.cleanSettings || {
             history: { enabled: true, days: 30 },
             downloads: { enabled: true, days: 30 },
             cache: { enabled: true, days: 7 },
-            serviceWorkers: { enabled: true, days: 30 },
-            fileSystems: { enabled: true, days: 30 },
-            indexedDB: { enabled: true, days: 30 }
+            indexedDB: { enabled: true, days: 30 },
+            smartCleanup: { enabled: true, months: 3 }
         };
-
-        const settings = result.cleanSettings || defaultSettings;
 
         types.forEach(type => {
             if (settings[type]) {
                 elements[type].checkbox.checked = settings[type].enabled;
                 elements[type].days.value = settings[type].days;
                 elements[type].days.disabled = !settings[type].enabled;
-            } else {
-                elements[type].checkbox.checked = defaultSettings[type].enabled;
-                elements[type].days.value = defaultSettings[type].days;
-                elements[type].days.disabled = !defaultSettings[type].enabled;
             }
         });
+
+        if (settings.smartCleanup) {
+            smartChk.checked = settings.smartCleanup.enabled;
+            smartMonths.value = settings.smartCleanup.months || 3;
+            smartMonths.disabled = !settings.smartCleanup.enabled;
+        }
     });
 
-    // Event listener for the save button
+    // Save button logic
     saveButton.addEventListener('click', () => {
-        let hasError = false;
         const newSettings = {};
         let minDays = Infinity;
 
         types.forEach(type => {
             const enabled = elements[type].checkbox.checked;
-            const days = parseInt(elements[type].days.value);
-
-            if (enabled && (isNaN(days) || days < 0)) {
-                hasError = true;
-            }
-
-            newSettings[type] = { enabled, days: isNaN(days) ? 30 : days };
-            if (enabled && days < minDays) {
-                minDays = days;
-            }
+            const days = parseInt(elements[type].days.value) || 30;
+            newSettings[type] = { enabled, days };
+            if (enabled && days < minDays) minDays = days;
         });
 
-        if (hasError) {
-            alert(chrome.i18n.getMessage('errorPositiveNumber') || "Please enter a positive number.");
-            return;
-        }
-
-        let cleanupIntervalMinutes = (minDays === 0) ? 60 : (60 * 24);
+        newSettings.smartCleanup = {
+            enabled: smartChk.checked,
+            months: parseInt(smartMonths.value) || 3
+        };
 
         chrome.storage.sync.set({ cleanSettings: newSettings }, () => {
             const originalText = saveButton.textContent;
             saveButton.textContent = chrome.i18n.getMessage('saveSuccess') || "✓ Saved!";
             saveButton.classList.add('success');
-            saveButton.disabled = true;
-
+            
+            const cleanupIntervalMinutes = (minDays === Infinity || minDays === 0) ? 60 : (60 * 24);
             chrome.runtime.sendMessage({ action: "updateSchedule", interval: cleanupIntervalMinutes });
 
             setTimeout(() => {
                 saveButton.textContent = originalText;
                 saveButton.classList.remove('success');
-                saveButton.disabled = false;
+            }, 2000);
+        });
+    });
+
+    // Deep Clean button logic
+    deepButton.addEventListener('click', () => {
+        const days = parseInt(deepDaysInput.value) || 7;
+        const originalText = deepButton.textContent;
+        
+        deepButton.disabled = true;
+        deepButton.textContent = "...";
+        
+        chrome.runtime.sendMessage({ action: "deepClean", days: days }, (response) => {
+            deepButton.textContent = chrome.i18n.getMessage('saveSuccess') || "Done!";
+            setTimeout(() => {
+                deepButton.disabled = false;
+                deepButton.textContent = originalText;
             }, 2000);
         });
     });
@@ -137,46 +147,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (logs.length === 0) {
                 clearLogsBtn.style.display = 'none';
-                const noLogs = document.createElement('div');
-                noLogs.className = 'no-logs';
-                noLogs.textContent = chrome.i18n.getMessage('noLogs') || "No cleanup logs yet.";
-                logsContainer.appendChild(noLogs);
+                logsContainer.innerHTML = `<div class="no-logs">${chrome.i18n.getMessage('noLogs') || "No logs yet."}</div>`;
                 return;
             }
 
             clearLogsBtn.style.display = 'block';
-
-            // Show newest logs first
             logs.slice().reverse().forEach(log => {
                 const entry = document.createElement('div');
                 entry.className = 'log-entry';
-
-                const timeDiv = document.createElement('div');
-                timeDiv.className = 'log-time';
-                timeDiv.textContent = new Date(log.timestamp).toLocaleString();
-
-                const detailsDiv = document.createElement('div');
-                detailsDiv.textContent = `Cleaned: ${log.types && log.types.length ? log.types.join(', ') : 'None'}`;
-
-                if (log.details) {
-                    const extraDetails = document.createElement('div');
-                    extraDetails.style.fontSize = '10px';
-                    extraDetails.style.color = '#80868b';
-                    extraDetails.textContent = log.details;
-                    detailsDiv.appendChild(extraDetails);
-                }
-
-                entry.appendChild(timeDiv);
-                entry.appendChild(detailsDiv);
+                entry.innerHTML = `
+                    <div class="log-time">${new Date(log.timestamp).toLocaleString()}</div>
+                    <div class="log-details">${log.details || log.types.join(', ')}</div>
+                `;
                 logsContainer.appendChild(entry);
             });
         });
     }
 
-    // Clear logs button logic
     clearLogsBtn.addEventListener('click', () => {
-        chrome.storage.local.set({ cleanupLogs: [] }, () => {
-            loadLogs();
-        });
+        chrome.storage.local.set({ cleanupLogs: [] }, loadLogs);
     });
-});
+});

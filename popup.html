@@ -4,92 +4,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Cleaner Settings</title>
+    <title>Auto Profile Cleaner</title>
     <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-hover: #1765cc;
+            --danger: #d93025;
+            --danger-hover: #b3261e;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #202124;
+            --text-secondary: #5f6368;
+            --border: #dadce0;
+            --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            width: 300px;
-            padding: 10px;
-            background-color: #f7f7f7;
-            color: #3c4043;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            width: 360px;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+            color: white;
+            padding: 12px 10px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         h2 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            margin: 0 0 10px 0;
-            color: #202124;
-            text-align: center;
+            margin: 0;
         }
 
-        .flex {
+        .tabs {
+            display: flex;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .container {
+            padding: 12px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-top: 10px;
-            gap: 10px;
+            gap: 6px;
         }
 
-        label {
-            flex-grow: 1;
-            font-size: 14px;
-            font-weight: 500;
-            color: #202124;
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .checkbox-item label {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            cursor: pointer;
+            color: var(--text);
+            flex: 1;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            min-width: 16px;
+            min-height: 16px;
+            margin: 0 10px 0 0;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .days-config {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: var(--text-secondary);
         }
 
         input[type="number"] {
-            width: 80px;
-            padding: 8px;
-            font-size: 14px;
+            width: 50px;
+            padding: 4px;
+            font-size: 13px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
             text-align: center;
-            border: 1px solid #dadce0;
-            border-radius: 8px;
-            box-sizing: border-box;
-            background-color: #ffffff;
-            color: #202124;
-            transition: border-color 0.2s ease-in-out;
         }
 
-        input[type="number"]:focus {
-            outline: none;
-            border-color: #4285f4;
-        }
-
-        button {
+        .action-btn {
             width: 100%;
             padding: 10px;
-            margin-top: 10px;
-            cursor: pointer;
             border: none;
             border-radius: 8px;
-            color: white;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 14px;
-            transition: background-color 0.2s;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .save-btn {
-            background-color: #1a73e8;
+            background: var(--primary);
+            color: white;
+            margin-top: 5px;
         }
 
-        .save-btn:hover {
-            background-color: #1765cc;
+        .save-btn:hover { background: var(--primary-hover); }
+        .save-btn.success { background: #1e8e3e; }
+
+        .deep-btn {
+            background: #fff;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            margin-top: 10px;
         }
 
-        .save-btn.success {
-            background-color: #1e8e3e;
+        .deep-btn:hover {
+            background: #e8f0fe;
+            border-color: var(--primary-hover);
+        }
+
+        .deep-desc {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        .logs-container {
+            max-height: 300px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0;
+        }
+
+        .log-entry {
+            padding: 10px 15px;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .log-entry:last-child { border-bottom: none; }
+
+        .log-time {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .log-details {
+            font-size: 12px;
+            color: #3c4043;
+        }
+
+        .no-logs {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .advanced-badge {
+            background: #e8f0fe;
+            color: #1a73e8;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 8px;
         }
     </style>
 </head>
 
-<body data-i18n-processed="false">
-    <h2 data-i18n="popupTitle">Auto History Cleaner</h2>
-    <div class="flex">
-        <label for="daysInput" data-i18n="keepHistoryLabel">Keep history for (days):</label>
-        <input type="number" id="daysInput" min="0" value="30">
+<body>
+    <div class="header">
+        <h2 data-i18n="popupTitle">Auto Profile Cleaner</h2>
     </div>
-    <button id="saveButton" class="save-btn" data-i18n="saveButton">Save Settings</button>
+
+    <div class="tabs">
+        <button id="tabSettingsBtn" class="tab-btn active" data-i18n="tabSettings">Settings</button>
+        <button id="tabLogsBtn" class="tab-btn" data-i18n="tabLogs">Logs</button>
+    </div>
+
+    <div id="tabSettings" class="container">
+        <div class="card">
+            <div class="section-title">
+                <span data-i18n="cleanDescriptionLabel">General Cleanup</span>
+            </div>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <label><input type="checkbox" id="chk_history"> <span data-i18n="cleanHistory">History</span></label>
+                    <div class="days-config"><input type="number" id="days_history" min="0"> <span data-i18n="daysLabel">d</span></div>
+                </div>
+                <div class="checkbox-item">
+                    <label><input type="checkbox" id="chk_downloads"> <span data-i18n="cleanDownloads">Downloads</span></label>
+                    <div class="days-config"><input type="number" id="days_downloads" min="0"> <span data-i18n="daysLabel">d</span></div>
+                </div>
+                <div class="checkbox-item">
+                    <label><input type="checkbox" id="chk_cache"> <span data-i18n="cleanCache">Cache</span></label>
+                    <div class="days-config"><input type="number" id="days_cache" min="0"> <span data-i18n="daysLabel">d</span></div>
+                </div>
+                <div class="checkbox-item">
+                    <label><input type="checkbox" id="chk_indexedDB"> <span data-i18n="cleanIndexedDB">Storage</span></label>
+                    <div class="days-config"><input type="number" id="days_indexedDB" min="0"> <span data-i18n="daysLabel">d</span></div>
+                </div>
+                <div class="checkbox-item">
+                    <label><input type="checkbox" id="chk_smartCleanup"> <span data-i18n="smartCleanupDesc">Wipe abandoned sites</span></label>
+                    <div class="days-config"><input type="number" id="months_smartCleanup" min="1" max="12"> <span data-i18n="monthsLabel">mo</span></div>
+                </div>
+                <p style="font-size: 11px; color: var(--text-secondary); margin: 0 0 0 26px; line-height: 1.1;" data-i18n="smartPolicyNote">
+                    Wipes data for sites NOT visited in the last N months.
+                </p>
+            </div>
+        </div>
+
+        <button id="saveButton" class="action-btn save-btn" data-i18n="saveButton">Save Settings</button>
+
+        <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed var(--border);">
+            <div class="section-title">
+                <span data-i18n="deepTitle">Deep Cache Cleanup</span>
+            </div>
+            <button id="deepButton" class="action-btn deep-btn">
+                <span data-i18n="deepBtnText">Wipe Old Cache</span>
+            </button>
+            <div class="deep-desc">
+                <span data-i18n="deepDescPrefix">Wipes cache for sites not visited in</span>
+                <input type="number" id="deep_days" value="7" min="1" style="width: 32px; height: 18px; font-size: 11px;">
+                <span data-i18n="deepDescSuffix">days.</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="tabLogs" class="container" style="display: none;">
+        <div class="logs-container" id="logsContainer">
+            <div class="no-logs" data-i18n="noLogs">No cleanup logs yet.</div>
+        </div>
+        <button id="clearLogsBtn" class="action-btn" style="background: none; color: var(--danger); margin-top: 10px; font-size: 12px; border: 1px solid var(--danger); display: none;" data-i18n="clearLogsButton">Clear Logs</button>
+    </div>
+
     <script src="popup.js"></script>
 </body>
 
-</html>
+</html>

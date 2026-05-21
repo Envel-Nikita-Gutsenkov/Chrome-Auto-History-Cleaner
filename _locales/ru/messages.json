@@ -1,14 +1,14 @@
 {
     "extName": {
-        "message": "Авто-очистка истории",
+        "message": "Авто-очистка профиля",
         "description": "Название расширения."
     },
     "extDescription": {
-        "message": "Автоматически удаляет историю браузера старше указанного количества дней.",
+        "message": "Автоматически глубоко очищает ваш профиль браузера (Кэш, SW и т.д.), безопасно сохраняя ваши авторизации и куки.",
         "description": "Описание расширения."
     },
     "popupTitle": {
-        "message": "Авто-очистка истории",
+        "message": "Авто-очистка профиля",
         "description": "Заголовок в поп-апе."
     },
     "keepHistoryLabel": {
@@ -26,5 +26,65 @@
     "errorPositiveNumber": {
         "message": "Пожалуйста, введите положительное число.",
         "description": "Сообщение об ошибке при неверном вводе."
+    },
+    "tabSettings": {
+        "message": "Настройки"
+    },
+    "tabLogs": {
+        "message": "Журнал очисток"
+    },
+    "cleanHistory": {
+        "message": "История просмотров"
+    },
+    "cleanDownloads": {
+        "message": "История скачиваний"
+    },
+    "cleanCache": {
+        "message": "Кэш (Картинки, Файлы, CacheStorage)"
+    },
+    "cleanServiceWorkers": {
+        "message": "Service Workers (Фоновые скрипты)"
+    },
+    "cleanFileSystems": {
+        "message": "Файловые системы (File Systems)"
+    },
+    "cleanIndexedDB": {
+        "message": "IndexedDB / WebSQL"
+    },
+    "clearLogsButton": {
+        "message": "Очистить журнал"
+    },
+    "noLogs": {
+        "message": "Журнал очисток пуст."
+    },
+    "cleanDescriptionLabel": {
+        "message": "Общая очистка"
+    },
+    "daysLabel": {
+        "message": "д."
+    },
+    "smartCleanupTitle": {
+        "message": "Умная очистка сайтов"
+    },
+    "smartCleanupDesc": {
+        "message": "Удалять «заброшенные» сайты"
+    },
+    "monthsLabel": {
+        "message": "мес."
+    },
+    "smartPolicyNote": {
+        "message": "Полностью стирает данные сайтов, которые вы НЕ посещали последние N месяцев."
+    },
+    "deepTitle": {
+        "message": "Глубокая очистка кэша"
+    },
+    "deepBtnText": {
+        "message": "Очистить старый кэш"
+    },
+    "deepDescPrefix": {
+        "message": "Стирает кэш сайтов, не посещенных"
+    },
+    "deepDescSuffix": {
+        "message": "дн. назад. Куки останутся."
     }
-}
+}
